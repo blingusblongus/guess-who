@@ -1,0 +1,11 @@
+[x] Upload profile Pictures
+[x] Add info to player array
+[x] Append div for each person in array
+    [x] determine the http link string
+    [x] append img element with both attrs
+[ ] Add random number function
+    [ ] choose the index of the who
+    [ ] Assign who's who (write with .data())
+[ ] Display success/failure message
+    [ ] success message
+    [ ] failure message try again
