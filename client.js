@@ -5,17 +5,33 @@ $(readyNow);
 
 function readyNow() {
     console.log('jquery loaded');
-    // click listener
+    $('body').on('click', 'img', checkMatch);
+    readyGame();
+}
 
-    $('img').on('click', checkMatch);
+function readyGame() {
+    $('#container').empty();
 
-    for (let person of people) {
-        let imgHtml = `<img 
+    //declare the who
+    let whoIndex = randomNumber(0, people.length - 1);
+    //console.log('whoIndex:', whoIndex);
+
+    for (let i = 0; i < people.length; i++) {
+        let person = people[i];
+        let imgHtml = $(`<img 
             src="https://github.com/${person.githubUsername}.png?size=250"    
-            alt="Profile image of ${person.name}">`;
+            alt="Profile image of ${person.name}">`);
+
+        if (i === whoIndex) {
+            imgHtml.data('who', true);
+        } else {
+            imgHtml.data('who', false);
+        }
 
         //append img to the container
         $("#container").append(imgHtml);
+
+        //console.log('imgHtml.data():', imgHtml.data());
     }
 }
 
@@ -24,19 +40,14 @@ function randomNumber(min, max) {
 };
 
 function checkMatch() {
-    let myPick = (this).closest('img').data();
-}
+    let myPick = $(this);
+    let isWho = myPick.data('who');
 
-function initGame() {
-    // assign index of the 'who'
-    let whoIndex = randomNumber(0, people.length - 1);
-    
-    // loop through, setting with .data() 
-    for(let i=0; i<people.length; i++){
-
+    if (isWho) {
+        alert('you win');
+        readyGame();
+    } else {
+        alert('you lose');
     }
-    
+};
 
-        //
-
-}
