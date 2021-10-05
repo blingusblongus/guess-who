@@ -19,8 +19,8 @@ function readyGame() {
     for (let i = 0; i < people.length; i++) {
         let person = people[i];
         let imgHtml = $(`<img 
-            src="https://github.com/${person.githubUsername}.png?size=250"    
-            alt="Profile image of ${person.name}">`);
+            src="https://github.com/${person.githubUsername}.png?size=200"    
+            alt="Profile image of ${person.name}">`).css('opacity', '0');
 
         if (i === whoIndex) {
             imgHtml.data('who', true);
@@ -30,6 +30,12 @@ function readyGame() {
 
         //append img to the container
         $("#container").append(imgHtml);
+        
+        //fade in to show reload
+        imgHtml.animate({
+            opacity: 1
+        }, 3000);
+        
 
         //console.log('imgHtml.data():', imgHtml.data());
     }
@@ -50,4 +56,8 @@ function checkMatch() {
         alert('you lose');
     }
 };
+
+function delay(){
+
+}
 
