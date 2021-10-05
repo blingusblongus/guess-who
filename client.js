@@ -20,7 +20,7 @@ function readyGame() {
         let person = people[i];
         let imgHtml = $(`<img 
             src="https://github.com/${person.githubUsername}.png?size=200"    
-            alt="Profile image of ${person.name}">`).css('opacity', '0');
+            alt="Profile image of ${person.name}">`).css('opacity', 0);
 
         if (i === whoIndex) {
             imgHtml.data('who', true);
@@ -50,14 +50,10 @@ function checkMatch() {
     let isWho = myPick.data('who');
 
     if (isWho) {
-        alert('you win');
-        readyGame();
+        alert('You Win!');
+        setTimeout(() => readyGame(), 2000);
     } else {
-        alert('you lose');
+        alert('You lose :(');
     }
 };
-
-function delay(){
-
-}
 

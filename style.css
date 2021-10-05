@@ -1,0 +1,7 @@
+.win {
+    border: 10px solid green;
+}
+
+.transparent {
+    opacity: 0;
+}
